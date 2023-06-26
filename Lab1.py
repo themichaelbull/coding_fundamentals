@@ -35,3 +35,18 @@ print(f"\nThe perimeter of your rectangle is: {perimeter}\n"
     f"\nThe area of your rectangle is: {area}")
 
 print("\n\nThat's it! Cheers!")
+
+### ### ###
+
+# Task 5
+
+# make a dictionary of books with 3 authors, and multiple books per author.
+# Use an input() asking for an author name
+# print back as a string the lst of books by the author
+# use the .join() method.
+
+books = {"George Orwell": ["1984", "Animal Farm"], "Jane Austen": ["Pride and Prejudice", "Sense and Sensibility"], "Ernest Hemingway": ["The Old Man and the Sea", "For Whom The Bell Tolls"]}
+author_name = input("Please give me an authors name, I'll give you a list of books\n")
+authors_books = ", ".join(books[author_name])
+print(authors_books)
+print(type(authors_books))
