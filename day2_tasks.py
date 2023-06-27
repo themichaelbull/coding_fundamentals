@@ -139,8 +139,6 @@ elif b > a and b > c:
 elif c > a and c > b:
     x = c
 
-print(f"{x} is number")
-
 if x % 2 == 0:
     print("Even number")
 elif (x % 2 != 0) and (x % 3 == 0):
