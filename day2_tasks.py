@@ -21,8 +21,8 @@ kg_terms = ("kg", "kgs", "kilograms")
 user_weight, weight_type = (input("What is your weight and what measurement is it in? Please seperate these by a space: ")).split()
 
 if weight_type.lower() in pound_terms:
-    print(round(int(user_weight) * 0.45359237,1), "pounds")
+    print(round(int(user_weight) * 0.45359237,1), "kg")
 elif weight_type.lower() in kg_terms:
-    print(int(user_weight) * 2.2, "kg")
+    print(int(user_weight) * 2.2, "pounds")
 else:
     print("You didn't provide a weight or weight type correctly. Please run the program again.")
