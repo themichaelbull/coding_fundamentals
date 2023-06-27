@@ -110,13 +110,13 @@ if user_option == 1:
     b = int(b)
     c = int(c)
     print("The length of side A is:\n")
-    print((c**2) - (b**2))
+    print(maths.sqrt((c**2) - (b**2)))
 elif user_option == 2:
     a, c = (input("\nGive me the lengths of side A and C, seperated by a space: ")).split()
     a = int(a)
     c = int(c)
     print("The length of side B is:\n")
-    print((c**2) - (a**2))
+    print(maths.sqrt((c**2) - (a**2)))
 elif user_option == 3:
     a, b = (input("\nGive me the lengths of side B and C, seperated by a space: ")).split()
     a = int(a)
