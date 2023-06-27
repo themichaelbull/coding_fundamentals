@@ -145,3 +145,21 @@ elif (x % 2 != 0) and (x % 3 == 0):
     print("Odd number and multiple of 3")
 elif (x % 2 != 0):
     print("Odd number")
+
+# Extra Task - Shorter
+
+numbers = []
+
+numbers.insert(1, int(input("Give me your first number: ")))
+numbers.insert(2, int(input("Give me your second number: ")))
+numbers.insert(3, int(input("Give me your third number: ")))
+
+sorted(numbers)
+x = numbers[-1]
+
+if x % 2 == 0:
+    print("Even number")
+elif (x % 2 != 0) and (x % 3 == 0):
+    print("Odd number and multiple of 3")
+elif (x % 2 != 0):
+    print("Odd number")
