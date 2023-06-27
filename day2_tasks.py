@@ -18,7 +18,8 @@ else:
 pound_terms = ("lb", "lbs", "pounds")
 kg_terms = ("kg", "kgs", "kilograms")
 
-user_weight, weight_type = (input("What is your weight and what measurement is it in? Please seperate these by a space: ")).split()
+user_weight, weight_type = (input("""What is your weight and what measurement 
+is it in? Please seperate these by a space: """)).split()
 
 if weight_type.lower() in pound_terms:
     print(round(int(user_weight) * 0.45359237,1), "kg")
@@ -73,7 +74,8 @@ else:
 
 # Task 5 - Calculate Exam Grades with Levels
 
-student_score, student_level = (input("Hi there. Please give me your score and your student level, seperated by a space: ")).split()
+student_score, student_level = (input("""Hi there. Please give me your score
+and your student level, seperated by a space: """)).split()
 
 student_score = int(student_score)
 
@@ -100,7 +102,9 @@ if student_level == "2":
 
 # Task 6 - Pythagoras Calculator
 
-user_option = int(input("Pythagoras' Calculator - Choose an Option!\n\n1. Find the length of A given B and C\n2. Find the length of B given A and C\n3. Find the length of C given A and B\n\n"))
+user_option = int(input("""Pythagoras' Calculator - Choose an Option!\n\n1. 
+Find the length of A given B and C\n2. Find the length of B given A and C\n3.
+Find the length of C given A and B\n\n"""))
 
 if user_option == 1:
     b, c = (input("\nGive me the lengths of side B and C, seperated by a space: ")).split()
