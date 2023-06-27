@@ -101,6 +101,8 @@ if student_level == "2":
 
 # Task 6 - Pythagoras Calculator
 
+import math
+
 user_option = int(input("Pythagoras' Calculator - Choose an Option!\n\n1. Find the length of A given B and C\n2. Find the length of B given A and C\n3. Find the length of C given A and B\n\n"))
 
 if user_option == 1:
@@ -120,4 +122,4 @@ elif user_option == 3:
     a = int(a)
     b = int(b)
     print("The length of side C is:\n")
-    print((a**2) + (b**2))
+    print(math.sqrt((a**2) + (b**2)))
