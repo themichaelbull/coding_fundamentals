@@ -123,3 +123,27 @@ elif user_option == 3:
     b = int(b)
     print("The length of side C is:\n")
     print(math.sqrt((a**2) + (b**2)))
+
+### ### ###
+
+# Extra Task
+
+a = int(input("Give me your first number: "))
+b = int(input("Give me your second number: "))
+c = int(input("Give me your third number: "))
+
+if a > b and a > c:
+    x = a
+elif b > a and b > c:
+    x = b
+elif c > a and c > b:
+    x = c
+
+print(f"{x} is number")
+
+if x % 2 == 0:
+    print("Even number")
+elif (x % 2 != 0) and (x % 3 == 0):
+    print("Odd number and multiple of 3")
+elif (x % 2 != 0):
+    print("Odd number")
