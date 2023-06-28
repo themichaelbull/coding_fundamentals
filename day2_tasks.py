@@ -486,7 +486,6 @@ while True:
         time2 = input("Give me your second time please, in the format DD:HH:MM: ")
         option_one(time1, time2)
     if user_option == "2":
-        print("Make sure to put in your larger time first")
         time1 = input("Give me your first time please, in the format DD:HH:MM: ")
         time2 = input("Give me your second time please, in the format DD:HH:MM: ")
         option_two(time1, time2)
