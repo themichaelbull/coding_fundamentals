@@ -389,6 +389,8 @@ print(f"Your word is {word} and the amount of vowels in that word is: {count}")
 
 # Task 3 - Time Calculator # In Progress
 
+import sys
+
 def showmenu():
     print("Time Calculator")
     print("1. Add 2 times")
@@ -437,6 +439,14 @@ def option_five(minutes):
         minutes = (int(minutes) % 1440) % 60
         print(f"Your minutes moved into time format is: {int(days)}:{int(hours)}:{int(minutes)}")
 
+def option_six(hours):
+    if int(hours) < 24:
+        print(f"Your hours moved into time format is: 00:{int(hours)}:00")
+    if int(hours) >= 24:
+        days = int(hours) // 24
+        hours = int(hours) % 24
+        print(f"Your hours moved into time format is: {int(days)}:{int(hours)}:00")
+
 ###########################
 
 showmenu()
@@ -454,7 +464,12 @@ if user_option == "4":
     time1 = input("Give me your first time please, in the format DD:HH:MM: ")
     option_four(time1)
 if user_option == "5":
-    time1 = input("Give me a set of time in minutes, I'll give you the time: ")
+    time1 = input("Give me a set of time in minutes, I'll give you the time format: ")
     option_five(time1)
+if user_option == "6":
+    time1 = input("Give me a set of time in hours, I'll give you the time format: ")
+    option_six(time1)
 if user_option == '7':
     print("Chris said to skip this one. Functionality not available, try another option!")
+if user_option =='8':
+    sys.exit()
