@@ -72,6 +72,16 @@ for prime in primes:
 # divisors of 1, 2 and 3 (not 5 or 6), and 1 + 2 + 3 = 6, so 6 is a perfect number. 8 has proper divisors of 1, 2
 # and 4. 1 + 2 + 4 is 7, so 8 is not a perfect number. 
 
+number = 28
+calc = []
+
+for x in range(1, number):
+    if number % x == 0:
+        calc.append(x)
+
+if sum(calc) == number:
+    print(f"{number} is a perfect number!")
+
 # Exercise 4 : Multiplication Table
 # Write a program to generate the multiplication table for a 
 # given number (n) up to a certain limit (limit) using a for loop.
