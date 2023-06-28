@@ -391,7 +391,11 @@ print(f"Your word is {word} and the amount of vowels in that word is: {count}")
 
 import sys
 
+# Functions/Logic of Time Calculator and Menu
+
 def showmenu():
+    print("\n", 80 * "*", "\n")
+    print()
     print("Time Calculator")
     print("1. Add 2 times")
     print("2. Find the difference between 2 times")
@@ -400,7 +404,7 @@ def showmenu():
     print("5. Convert Minutes to Time")
     print("6. Convert Hours to Time")
     print("7. Convert Days to Time") # Don't do
-    print("8. Exit")
+    print("8. Exit\n")
 
 def option_one(user_time1, user_time2): # still kinda jank
     days = int(user_time1[0:2]) + int(user_time2[0:2])
@@ -415,7 +419,25 @@ def option_one(user_time1, user_time2): # still kinda jank
     minutes = minutes % 60
     print(f"Your time added together is: {days}:{hours}:{minutes}")
 
-def option_three(user_time): # done
+def option_two(user_time1, user_time2):
+    user_time1_DtoM = int(user_time1[0:2]) * 1440
+    user_time1_HtoM = int(user_time1[3:5]) * 60
+    user_time1_M = int(user_time1[6:])
+    user_time1minutes = user_time1_DtoM+user_time1_HtoM+user_time1_M
+    print(user_time1minutes)
+
+    user_time2_DtoM = int(user_time2[0:2]) * 1440
+    user_time2_HtoM = int(user_time2[3:5]) * 60
+    user_time2_M = int(user_time2[6:])
+    user_time2minutes = user_time2_DtoM+user_time2_HtoM+user_time2_M
+    print(user_time2minutes)
+
+    timediff = user_time1minutes - user_time2minutes
+
+    print(timediff)
+    option_five(timediff)
+
+def option_three(user_time):
     days = (int(user_time[0:2]) * 24)
     hours = (int(user_time[3:5]))
     print(f"You time convereted to hours is {days+hours} hours!")
@@ -447,29 +469,39 @@ def option_six(hours):
         hours = int(hours) % 24
         print(f"Your hours moved into time format is: {int(days)}:{int(hours)}:00")
 
-###########################
+### ### ###
 
-showmenu()
+# While Loop with calling of logic functions
 
-user_option = input("Please select an option: ")
+while True:
 
-if user_option == "1":
-    time1 = input("Give me your first time please, in the format DD:HH:MM: ")
-    time2 = input("Give me your second time please, in the format DD:HH:MM: ")
-    option_one(time1, time2)
-if user_option == "3":
-    time1 = input("Give me your first time please, in the format DD:HH:MM: ")
-    option_three(time1)
-if user_option == "4":
-    time1 = input("Give me your first time please, in the format DD:HH:MM: ")
-    option_four(time1)
-if user_option == "5":
-    time1 = input("Give me a set of time in minutes, I'll give you the time format: ")
-    option_five(time1)
-if user_option == "6":
-    time1 = input("Give me a set of time in hours, I'll give you the time format: ")
-    option_six(time1)
-if user_option == '7':
-    print("Chris said to skip this one. Functionality not available, try another option!")
-if user_option =='8':
-    sys.exit()
+    showmenu()
+
+    user_option = input("Please select an option: ")
+
+    if user_option == "1":
+        time1 = input("Give me your first time please, in the format DD:HH:MM: ")
+        time2 = input("Give me your second time please, in the format DD:HH:MM: ")
+        option_one(time1, time2)
+    if user_option == "2":
+        print("Make sure to put in your larger time first")
+        time1 = input("Give me your first time please, in the format DD:HH:MM: ")
+        time2 = input("Give me your second time please, in the format DD:HH:MM: ")
+        option_two(time1, time2)
+    if user_option == "3":
+        time1 = input("Give me your first time please, in the format DD:HH:MM: ")
+        option_three(time1)
+    if user_option == "4":
+        time1 = input("Give me your first time please, in the format DD:HH:MM: ")
+        option_four(time1)
+    if user_option == "5":
+        time1 = input("Give me a set of time in minutes, I'll give you the time format: ")
+        option_five(time1)
+    if user_option == "6":
+        time1 = input("Give me a set of time in hours, I'll give you the time format: ")
+        option_six(time1)
+    if user_option == '7':
+        print("Chris said to skip this one. Functionality not available, try another option!")
+    if user_option =='8':
+        print("Thanks for using, goodbye!")
+        sys.exit()
