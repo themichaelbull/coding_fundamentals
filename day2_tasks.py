@@ -181,3 +181,264 @@ elif (x % 2 != 0) and (x % 3 == 0):
     print("Odd number and multiple of 3")
 elif (x % 2 != 0):
     print("Odd number")
+
+# While Loop Example
+
+x = 0
+while x < 5:
+    name = (input("Give me a persons name please!\n"))
+    print(f"{name} is great!")
+    x += 1
+
+###########################
+###########################
+
+### LAB 3 Start  - While Loops ###
+
+# Task 1 - Squares
+
+x = 1
+
+while x < 100:
+    print(x ** 2)
+    x += 1
+    if (x ** 2) > 2000:
+        break
+
+# Task 2 - Factorial
+
+factorial = int(input("Give me a number, I'll give you the factorial: "))
+new_factorial = list(range(1, factorial+1))
+number = 1
+while True:
+    if new_factorial == []:
+        break 
+    number = new_factorial.pop() * number
+
+print(f"Your factorial result is: {number}")
+
+# Task 3 - Investment
+
+init_invest = 100
+years = 0
+
+print(f"Initial Investment: {init_invest}")
+
+while init_invest < 1000:
+    interest_amount = init_invest / 10
+    init_invest = round(init_invest + interest_amount)
+    years += 1
+    print(f"Year {years}: {init_invest}")
+
+print(f"\nIt will take {years} years to get your investment to £1000")
+
+# Task 4 - Input an Integer Between Two Limits
+
+min = 1
+max = 100
+
+x = 3
+while x != 0:
+    user_guess = int(input("Give a number between range of the two numbers 1 to 100: "))
+    if user_guess >= 1 and user_guess <= 100:        
+        print(f"Yes! {str(user_guess)} is in that range specified")
+        break
+    x = x - 1
+    if x == 0:
+        print(None)
+    else:
+        print("Incorrect try again")
+
+# Task 5 - Count Vowels
+
+chosen_word = (input("Please give me a word: "))
+user_word = list(chosen_word)
+vowel_count = 0
+while user_word:
+    letter = user_word.pop()
+    if letter in ['a', 'e', 'i', 'o', 'u']:
+        vowel_count += 1
+
+print(f"Your word '{chosen_word}' has a vowel_count of {vowel_count}")
+
+# Task 6 - Exam Average
+
+subjects = ['maths', 'english', 'ict']
+average_mark = 65
+overall_result = 0
+
+while True:
+    subject = subjects.pop()
+    x = 1
+    while True:
+        result = int(input(f"Please give me your result for {subject}: "))
+        if result >= 0 and result <= 100:
+            overall_result = overall_result + result
+
+            break
+        else:
+            print("Enter a valid mark")
+    if subjects == []:
+        break
+
+user_average_result = round(overall_result / 3)
+
+if user_average_result >= average_mark:
+    print(f"\nPass! Well done! You passed with: {user_average_result}")
+else:
+    print(f"\nUnlucky, you failed. You're score was {user_average_result}")
+print(f"\nThe average result typically is {average_mark}")
+
+# Task 7 - Squares again but with For Loops
+
+for number in range(1,100):
+    squared = number ** 2
+    if squared >= 2000:
+        break
+    print(squared)
+
+# Task 8 - Factorial Again but with For Loops
+
+factorial = int(input("Give me a number, I'll give you the factorial: "))
+factorial += 1
+number = 1
+
+for x in range(2, factorial):
+    print(f"{number} multipled by {x}")
+    number = number * x
+
+print(f"Your factorial result is: {number}")
+
+###########################
+###########################
+
+### Lab 4 Start - For Loops ###
+
+
+# Task 1 - Ages List
+
+# Original ages list
+
+ages = [12,18,33,84,45,67,12,82,95,16,10,23,43,29,40,34,30,16,44,69,70,74,38,65,36,83,50,11,7,
+9,64,78,37,3,8,68,22,4,60,33,82,45,23,5,18,28,99,17,81,14,88,50,19,59,7,44,93,35,72,25,
+63,11,69,11,76,10,60,30,14,21,82,47,6,21,88,46,78,92,48,36,28,51]
+
+# Length of list
+
+amount_of_ages = len(ages)
+print(f"Here is the length of the list ages: {amount_of_ages}\n")
+
+print("\n",80 * "*","\n")
+
+# List printed one at a time
+
+print(f"Here is all the ages in the list ages, one at a time:\n")
+
+for age in ages:
+    print(age)
+
+print("\n",80 * "*","\n")
+
+# List items altered by 1
+
+print(f"Here is all the ages in the list ages, altered to be aged up by 1\n")
+
+updated_ages = []
+
+for age in ages:
+    age += 1
+    updated_ages.append(age)
+    print(updated_ages[-1])
+
+print("\n",80 * "*","\n")
+
+# List items altered exlusively having ages 16-65
+
+removeold = [age for age in updated_ages if (age <= 65) and (age >= 16)]
+print(f"Here is our list, with the age range being 16-65\n\n{removeold}")
+
+print("\n",80 * "*","\n")
+
+# List altered using .sort() method
+
+print(f"Here is the list sorted using the .sort() method\n")
+removeold.sort()
+print(removeold)
+
+print("\n",80 * "*","\n")
+
+# Getting proporation/percentage of altered list that has ages between 16-25
+
+print(f"Here is the proporation/percentage of ages that fall between 16-25:\n")
+
+sixteen_to_twenty25 = [age for age in removeold if (age <= 25) and (age >= 16)]
+decimal = len(sixteen_to_twenty25) / len(removeold)
+percentage = round(decimal * 100, 2)
+print(str(percentage) + "%")
+
+# Task 2 - Count Vowels w/ For Loops
+
+word = input("Please enter a string: ")
+vowels = ['a', 'e', 'i', 'o', 'u']
+count = 0
+for letter in word:
+    if letter in vowels:
+        count += 1
+
+print(f"Your word is {word} and the amount of vowels in that word is: {count}")
+
+# Task 3 - Time Calculator # In Progress
+
+def showmenu():
+    print("Time Calculator")
+    print("1. Add 2 times")
+    print("2. Find the difference between 2 times")
+    print("3. Convert to Hours")
+    print("4. Convert to Minutes")
+    print("5. Convert Minutes to Time")
+    print("6. Convert Hours to Time")
+    print("7. Convert Days to Time") # Don't do
+    print("8. Exit")
+
+def option_one(user_time1, user_time2):
+    days = int(user_time1[0:2]) + int(user_time2[0:2])
+    hours = int(user_time1[3:5]) + int(user_time2[3:5])
+    minutes = int(user_time1[6:]) + int(user_time2[6:])
+    extra_days = (hours // 24)
+    days = days + extra_days
+    extra_hours = hours % 24
+    hours = hours + extra_hours
+    extra_minutes = minutes // 60
+    hours = hours + extra_minutes
+    minutes = minutes % 60
+    print(f"Your time added together is: {days}:{hours}:{minutes}")
+
+def option_three(user_time): # done
+    days = (int(user_time[0:2]) * 24)
+    hours = (int(user_time[3:5]))
+    print(f"You time convereted to hours is {days+hours} hours!")
+
+def option_four(user_time):
+    days = (int(user_time[0:2]) * 24) * 60
+    hours = (int(user_time[3:5])) * 60
+    minutes = (int(user_time[6:]))
+    print(f"You time convereted to minutes is {days+hours+minutes} minutes!")
+
+###########################
+
+showmenu()
+
+user_option = input("Please select an option: ")
+
+if user_option == "1":
+    time1 = input("Give me your first time please, in the format DD:HH:MM: ")
+    time2 = input("Give me your second time please, in the format DD:HH:MM: ")
+    option_one(time1, time2)
+if user_option == "3":
+    time1 = input("Give me your first time please, in the format DD:HH:MM: ")
+    option_three(time1)
+if user_option == "4":
+    time1 = input("Give me your first time please, in the format DD:HH:MM: ")
+    option_four(time1)
+if user_option == '7':
+    print("Chris said to skip this one. Functionality not available, try another option!")
