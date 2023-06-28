@@ -387,7 +387,7 @@ for letter in word:
 
 print(f"Your word is {word} and the amount of vowels in that word is: {count}")
 
-# Task 3 - Time Calculator # In Progress
+# Task 3 - Time Calculator 
 
 import sys
 
@@ -403,21 +403,16 @@ def showmenu():
     print("4. Convert to Minutes")
     print("5. Convert Minutes to Time")
     print("6. Convert Hours to Time")
-    print("7. Convert Days to Time") # Don't do
+    print("7. Convert Days to Time")
     print("8. Exit\n")
 
-def option_one(user_time1, user_time2): # still kinda jank
-    days = int(user_time1[0:2]) + int(user_time2[0:2])
-    hours = int(user_time1[3:5]) + int(user_time2[3:5])
-    minutes = int(user_time1[6:]) + int(user_time2[6:])
-    extra_days = (hours // 24)
-    days = days + extra_days
-    extra_hours = hours % 24
-    hours = hours + extra_hours
-    extra_minutes = minutes // 60
-    hours = hours + extra_minutes
-    minutes = minutes % 60
-    print(f"Your time added together is: {days}:{hours}:{minutes}")
+def option_one(user_time1, user_time2):
+    user_time1_min = option_four(user_time1)
+    user_time2_min = option_four(user_time2)
+    time = user_time1_min + user_time2_min
+
+    total = option_five(time)
+    print(f"Your time added together is: {total}")
 
 def option_two(user_time1, user_time2):
     user_time1_DtoM = int(user_time1[0:2]) * 1440
@@ -432,7 +427,10 @@ def option_two(user_time1, user_time2):
     user_time2minutes = user_time2_DtoM+user_time2_HtoM+user_time2_M
     print(user_time2minutes)
 
-    timediff = user_time1minutes - user_time2minutes
+    if user_time1minutes > user_time2minutes:
+        timediff = user_time1minutes - user_time2minutes
+    else:
+        timediff = user_time2minutes - user_time1minutes
 
     print(timediff)
     option_five(timediff)
@@ -446,7 +444,9 @@ def option_four(user_time):
     days = (int(user_time[0:2]) * 24) * 60
     hours = (int(user_time[3:5])) * 60
     minutes = (int(user_time[6:]))
+    result = days+hours+minutes
     print(f"You time convereted to minutes is {days+hours+minutes} minutes!")
+    return result
 
 def option_five(minutes):
     if int(minutes) <= 60:
@@ -459,7 +459,9 @@ def option_five(minutes):
         days = int(minutes) // 1440
         hours = (int(minutes) % 1440) // 60
         minutes = (int(minutes) % 1440) % 60
+        total = f"{days}:{hours}:{minutes}"
         print(f"Your minutes moved into time format is: {int(days)}:{int(hours)}:{int(minutes)}")
+        return total
 
 def option_six(hours):
     if int(hours) < 24:
@@ -490,6 +492,10 @@ while True:
         option_two(time1, time2)
     if user_option == "3":
         time1 = input("Give me your first time please, in the format DD:HH:MM: ")
+        if time1[2] != ":" or time1[5] != ":" or time1[8] != ":":
+            print("Bad formatting! Make sure you format your time as DD:HH:MM")
+            print("Returning to menu")
+            continue
         option_three(time1)
     if user_option == "4":
         time1 = input("Give me your first time please, in the format DD:HH:MM: ")
