@@ -400,7 +400,7 @@ def showmenu():
     print("7. Convert Days to Time") # Don't do
     print("8. Exit")
 
-def option_one(user_time1, user_time2):
+def option_one(user_time1, user_time2): # still kinda jank
     days = int(user_time1[0:2]) + int(user_time2[0:2])
     hours = int(user_time1[3:5]) + int(user_time2[3:5])
     minutes = int(user_time1[6:]) + int(user_time2[6:])
@@ -424,6 +424,19 @@ def option_four(user_time):
     minutes = (int(user_time[6:]))
     print(f"You time convereted to minutes is {days+hours+minutes} minutes!")
 
+def option_five(minutes):
+    if int(minutes) <= 60:
+        print(f"Your minutes moved into time format is: 00:00:{int(minutes)}")
+    if int(minutes) > 61 and int(minutes) < 1440:
+        hours = int(minutes) // 60
+        minutes = int(minutes) % 60
+        print(f"Your minutes moved into time format is: 00:{int(hours)}:{int(minutes)}")
+    if int(minutes) >= 1440:
+        days = int(minutes) // 1440
+        hours = (int(minutes) % 1440) // 60
+        minutes = (int(minutes) % 1440) % 60
+        print(f"Your minutes moved into time format is: {int(days)}:{int(hours)}:{int(minutes)}")
+
 ###########################
 
 showmenu()
@@ -440,5 +453,8 @@ if user_option == "3":
 if user_option == "4":
     time1 = input("Give me your first time please, in the format DD:HH:MM: ")
     option_four(time1)
+if user_option == "5":
+    time1 = input("Give me a set of time in minutes, I'll give you the time: ")
+    option_five(time1)
 if user_option == '7':
     print("Chris said to skip this one. Functionality not available, try another option!")
