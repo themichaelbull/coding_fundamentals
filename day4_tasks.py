@@ -50,4 +50,29 @@ print(statement.format(average, mean, median, minimum, maximum))
 
 ##########################
 
-### Lab 6 ###
+### Lab 6 ### - This might be broken, need to test
+
+salary = 40000
+
+def getIncomeTax(wage):
+    if wage > 150000:
+        topbracket = wage - 150000
+        topbracket_tax = (topbracket / 100) * 45
+        second_top_bracket_tax = (115499 / 100) * 40
+        third_top_bracket_tax = (22650 / 100) * 20
+        incometax = topbracket_tax + second_top_bracket_tax + third_top_bracket_tax
+    elif wage >= 115499:
+        topbracket = wage - 34501
+        topbracket_tax = (topbracket / 100) * 40
+        second_top_bracket_tax = (22650 / 100) * 20
+        incometax = topbracket_tax + second_top_bracket_tax
+    elif wage > 34500:
+        topbracket = wage - 11850
+        topbracket_tax = (topbracket / 100) * 20
+        incometax = topbracket_tax
+    elif wage < 11850:
+        incometax = 0
+        wage = salary
+    return incometax
+
+print(f"You are paying this much income tax:", getIncomeTax(salary))
