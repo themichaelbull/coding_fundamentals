@@ -18,6 +18,10 @@ options = {1: "rock", 2: "paper", 3: "scissors"}
 
 def rock_paper_scissors_game():
 
+    global rounds_played # bad practice, but fixes logic
+    global human_wins # bad practice, but fixes logic
+    global computer_wins # bad practice, but fixes logic
+
     print(f"{options}\n")
     user_chosen = int(input("What do you wanna choose?"))
     print(f"The user has chosen: {options[user_chosen]}")
@@ -56,12 +60,13 @@ def rock_paper_scissors_game():
         user_chosen == computer_chosen
         print("draw")
 
-    rounds_played = 0
-    human_wins = 0
-    computer_wins = 0
-
+rounds_played = 0
+human_wins = 0
+computer_wins = 0
 while True:
-    rounds_played = 0
+    print(f"Rounds played: {rounds_played}")
+    print(f"Human wins: {human_wins}")
+    print(f"Computer wins: {computer_wins}")
     play_answer = input("Do you want to play? \n")
     if play_answer == "yes":
         rounds_played += 1
