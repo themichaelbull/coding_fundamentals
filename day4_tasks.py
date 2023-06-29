@@ -65,3 +65,85 @@ def getIncomeTax(salary):
 salary = 200000
 tax_amount = getIncomeTax(salary)
 print("Tax anmount for salary £{} is £{}".format(salary, tax_amount))
+
+# Task 3 - Function Challenges
+
+# Sub-Task 1 - Password Checker
+
+def password_checker():
+    common_pwords = ["password", "abc123", "password1"]
+    user_pword = input("Give me a new password: ")
+    if user_pword.lower() in common_pwords:
+        print(f"Use a safer password, '{user_pword}'' is compromised")
+    else:
+        print("Password is safe")
+
+password_checker()
+
+# Sub-Task 2 - Simple Calc
+
+def simple_calc():
+    x,y = (input("Please give me two numbers seperated by a space: ").split())
+    x = int(x)
+    y = int(x)
+    print(f"{x} + {y} = {x+y}")
+    print(f"{x} - {y} = {x-y}")
+    print(f"{x} x {y} = {x*y}")
+
+simple_calc()
+
+###
+
+# Sub-Task 3 - Highest Num
+
+def highest_num(a,b,c):
+    list_of_nums = []
+    list_of_nums.append(a)
+    list_of_nums.append(b)
+    list_of_nums.append(c)
+    highest = max(list_of_nums)
+    return highest
+
+print(highest_num(1,2,3))
+
+# Sub-Task 4 - Odd or Even
+
+def odd_or_even():
+    user_num = input("Give me a number and I'll tell you if it's odd or even: ")
+    if int(user_num) % 2 == 0:
+        return f"{user_num} is even"
+    else:
+        return f"{user_num} is odd"
+    
+print(odd_or_even())
+
+# Sub-Task 5 - Upper
+
+def stringupper():
+    user_string = input("Give me a string: ")
+    return f"Here is your string in upper case: {user_string.upper()}"
+
+print(stringupper())
+
+###
+
+## Sub-Task 6 - Radius to Area
+
+import math
+
+def area_of_circle():
+    radius = int(input("Give me the radius of your circle: "))
+    area = pow(radius, 2) * math.pi
+    return area
+
+print(area_of_circle())
+
+###
+
+# Sub-Task 7 - Celcius to Farenheight
+
+def ctof(c):
+    f = (c * 1.8) + 32
+    return f
+
+print(ctof(2))
