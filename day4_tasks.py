@@ -142,7 +142,7 @@ print(area_of_circle())
 
 # Sub-Task 7 - Celcius to Farenheight
 
-def ctof(c):
+def celsius_to_fa(c):
     f = (c * 1.8) + 32
     return f
 
