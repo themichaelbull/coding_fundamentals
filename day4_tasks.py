@@ -23,10 +23,8 @@ maximum = (max(new_grades))
 print(minimum) # Displays minimum value of the grades
 print(maximum) # Displays maximum value of the grades
 
-# List Comprehension Method # Broken ATM
-
-# new_grades = [item for item in new_grades new_grades.append(int(item)) for item in grades]
-
+# List Comprehension Method
+new_grades = [int(x) for x in data.split(',')] # Chris's solution - very neat
 
 # Average of grades to 2 decimal points
 
