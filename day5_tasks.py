@@ -218,8 +218,6 @@ print("\n",videogame1.total_value())
 
 # Challenge 5 - Rewrite Rock Paper Scissors app using a class
 
-# Challenge 5 - Rewrite Rock Paper Scissors app using a class
-
 import random, sys
 
 class Welcome:
