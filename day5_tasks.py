@@ -355,3 +355,90 @@ def main():
         game.play_again(response)
 
 main()
+
+# Challenge 6 - Bookshelf and Books
+class Book:
+    def __init__(self, title, author, publisher, pub_year):
+        self.title = title
+        self.author = author
+        self.publisher = publisher
+        self.pub_year = pub_year
+
+    def __str__(self):
+        return f"Book title: {self.title}\nAuthor name: {self.author}\nPublisher: {self.publisher}\nYear published: {self.pub_year}"
+
+class BookShelf:
+    def __init__(self, current_cap=0, list_of_books=[], max_cap=3):
+        self.current_cap = current_cap
+        self.list_of_books = list_of_books
+        self.max_cap = max_cap
+
+    def __str__(self):
+        return f"Bookshelf Current Capacity: {self.current_cap}\nList of Books: {self.list_of_books}"
+
+    def add_book(self, book):
+        self.list_of_books.append(book)
+        if self.current_cap < self.max_cap:
+            self.current_cap += 1
+            print(f"The book {book.title} has been added to the bookshelf!\n")
+        else:
+            return "Capacity is full!"
+
+    def remove_book(self, book):
+        self.list_of_books.remove(book)
+        print(f"The book {book.title} has been removed from the library")
+
+    def find_book_by_title(self, book):
+        searchable_title = book.title
+        titles = []
+        for book in self.list_of_books:
+            titles.append(book.title)
+        if searchable_title in titles:
+            print(f"\nThe book {book.title} is in library\n")
+        else:
+            print(f"\nIt ain't there!")
+
+    def find_book_by_author(self, book):
+        searchable_author = book.author
+        authors = []
+        for book in self.list_of_books:
+            authors.append(book.author)
+        if searchable_author in authors:
+            print(f"\nThe author {book.author} is in the library\n")
+        else:
+            print(f"\nThey ain't there!")
+
+# Just some ASCII Art
+
+book = ("                  \n"
+"     ______ ______      \n"
+"   _/      Y      \_    \n"  
+"  // ~~ ~~ | ~~ ~  \\   \n"
+" // ~ ~ ~~ | ~~~ ~~ \\  \n"   
+"//________.|.________\\ \n"    
+"`----------`-'----------\n")
+
+print(book, "\nWelcome to the library! What would you like to do?\n")
+print("*" * 80, "\n")
+
+# Creating Books
+
+book1 = Book("the shock doctrine", "naomi klein", 2007, "Knopf Canada")
+book2 = Book("through the looking glass", "lewis carroll", 1871, "Macmillan & Co")
+book3 = Book("buddhism", "steven hagen", 1997, "penguin")
+book4 = Book("clean code", "robert martin", 2008, "pearson")
+
+# Creating Bookshelf
+
+new_bookshelf = BookShelf(current_cap=0, max_cap=3)
+
+# Adding Books to Bookshelf
+new_bookshelf.add_book(book1)
+new_bookshelf.add_book(book2)
+
+# Removing a book and proving it isn't there
+new_bookshelf.remove_book(book1)
+new_bookshelf.find_book_by_title(book1)
+
+# Searching for book that is there
+new_bookshelf.find_book_by_author(book2)
