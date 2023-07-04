@@ -85,12 +85,6 @@ class PasswordChecker:
 # Main Program
 ### ### ###
 
-password_history = {}
-
-print(LOCK_ART)
-print("*" * 80, "\n\nHey there! Welcome to the Password Checker!")
-print("Press Q to quit at anytime!","\n\n", "*" * 80, "\n")
-
 def main():
     """Main function of program"""
 
@@ -125,4 +119,9 @@ def main():
         password_history[password] = result
 
 if __name__ == "__main__":
+    password_history = {}
+
+    print(LOCK_ART)
+    print("*" * 80, "\n\nHey there! Welcome to the Password Checker!")
+    print("Press Q to quit at anytime!","\n\n", "*" * 80, "\n")
     main()
