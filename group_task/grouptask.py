@@ -94,6 +94,9 @@ print("Press Q to quit at anytime!","\n\n", "*" * 80, "\n")
 def main():
     """Main function of program"""
 
+    # Main while loop for accepting user input.
+    # Also shows history of passwords checked and their scores after every run through the loop
+
     while True:
         print("Previous Password Attempts:\n")
         for password, score in password_history.items():
@@ -105,6 +108,9 @@ def main():
             sys.exit()
         else:
             pass
+
+    # Takes user input to use with Password Checker Class and creates object to utilise
+
         test_object = PasswordChecker(password)
         common_pw_test = test_object.common_passwords()
         if common_pw_test == "fail":
@@ -118,4 +124,5 @@ def main():
         result = test_object.password_score_result(score)
         password_history[password] = result
 
-main()
+if __name__ == "__main__":
+    main()
